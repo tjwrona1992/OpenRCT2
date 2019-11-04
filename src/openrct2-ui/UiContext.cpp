@@ -37,6 +37,7 @@
 #include <openrct2/interface/Chat.h>
 #include <openrct2/interface/InteractiveConsole.h>
 #include <openrct2/localisation/StringIds.h>
+#include <openrct2/PlatformEnvironment.h>
 #include <openrct2/platform/Platform2.h>
 #include <openrct2/title/TitleSequencePlayer.h>
 #include <openrct2/ui/UiContext.h>
@@ -96,15 +97,15 @@ public:
     explicit UiContext(const std::shared_ptr<IPlatformEnvironment>& env)
         : _platformUiContext(CreatePlatformUiContext())
         , _windowManager(CreateWindowManager())
-        , _keyboardShortcuts(env)
+        , _keyboardShortcuts(env->GetFilePath(PATHID::CONFIG_KEYBOARD))
     {
         if (SDL_Init(SDL_INIT_VIDEO) < 0)
         {
             SDLException::Throw("SDL_Init(SDL_INIT_VIDEO)");
         }
         _cursorRepository.LoadCursors();
-        _keyboardShortcuts.Reset();
-        _keyboardShortcuts.Load();
+        //_keyboardShortcuts.Reset();
+        //_keyboardShortcuts.Load();
     }
 
     ~UiContext() override

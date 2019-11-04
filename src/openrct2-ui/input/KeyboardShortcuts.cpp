@@ -223,7 +223,7 @@ void keyboard_shortcuts_set(int32_t key)
     return _instance->Set(key);
 }
 
-int32_t keyboard_shortcuts_get_from_key(int32_t key)
+Shortcut keyboard_shortcuts_get_from_key(int32_t key)
 {
     return _instance->GetFromKey(key);
 }

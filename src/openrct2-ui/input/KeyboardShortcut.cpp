@@ -34,15 +34,9 @@
 #include <openrct2/windows/Intent.h>
 #include <openrct2/world/Park.h>
 #include <openrct2/world/Scenery.h>
+#include <map>
 
 uint8_t gKeyboardShortcutChangeId;
-
-using shortcut_action = void (*)();
-
-namespace
-{
-    extern const shortcut_action shortcut_table[SHORTCUT_COUNT];
-}
 
 /**
  *
@@ -50,26 +44,18 @@ namespace
  */
 void keyboard_shortcut_handle(int32_t key)
 {
-    int32_t shortcut = keyboard_shortcuts_get_from_key(key);
-    if (shortcut != -1)
-    {
-        keyboard_shortcut_handle_command(shortcut);
-    }
+    const auto shortcut = keyboard_shortcuts_get_from_key(key);
+    keyboard_shortcut_handle_command(shortcut);
 }
 
-void keyboard_shortcut_handle_command(int32_t shortcutIndex)
+void keyboard_shortcut_handle_command(Shortcut shortcut)
 {
-    if (shortcutIndex >= 0 && static_cast<uint32_t>(shortcutIndex) < std::size(shortcut_table))
+    const auto action = shortcutTable[shortcut];
+    if (action != nullptr)
     {
-        shortcut_action action = shortcut_table[shortcutIndex];
-        if (action != nullptr)
-        {
-            action();
-        }
+        action();
     }
 }
-
-#pragma region Shortcut Commands
 
 static void toggle_view_flag(int32_t viewportFlag)
 {
@@ -797,80 +783,82 @@ static void shortcut_open_scenery_picker()
 
 namespace
 {
-    const shortcut_action shortcut_table[SHORTCUT_COUNT] = {
-        shortcut_close_top_most_window,
-        shortcut_close_all_floating_windows,
-        shortcut_cancel_construction_mode,
-        shortcut_pause_game,
-        shortcut_zoom_view_out,
-        shortcut_zoom_view_in,
-        shortcut_rotate_view_clockwise,
-        shortcut_rotate_view_anticlockwise,
-        shortcut_rotate_construction_object,
-        shortcut_underground_view_toggle,
-        shortcut_remove_base_land_toggle,
-        shortcut_remove_vertical_land_toggle,
-        shortcut_see_through_rides_toggle,
-        shortcut_see_through_scenery_toggle,
-        shortcut_invisible_supports_toggle,
-        shortcut_invisible_people_toggle,
-        shortcut_height_marks_on_land_toggle,
-        shortcut_height_marks_on_ride_tracks_toggle,
-        shortcut_height_marks_on_paths_toggle,
-        shortcut_adjust_land,
-        shortcut_adjust_water,
-        shortcut_build_scenery,
-        shortcut_build_paths,
-        shortcut_build_new_ride,
-        shortcut_show_financial_information,
-        shortcut_show_research_information,
-        shortcut_show_rides_list,
-        shortcut_show_park_information,
-        shortcut_show_guest_list,
-        shortcut_show_staff_list,
-        shortcut_show_recent_messages,
-        shortcut_show_map,
-        shortcut_screenshot,
-
-        // new
-        shortcut_reduce_game_speed,
-        shortcut_increase_game_speed,
-        shortcut_open_cheat_window,
-        shortcut_remove_top_bottom_toolbar_toggle,
-        nullptr,
-        nullptr,
-        nullptr,
-        nullptr,
-        shortcut_open_chat_window,
-        shortcut_quick_save_game,
-        shortcut_show_options,
-        shortcut_mute_sound,
-        shortcut_windowed_mode_toggle,
-        shortcut_show_multiplayer,
-        nullptr,
-        shortcut_debug_paint_toggle,
-        shortcut_see_through_paths_toggle,
-        shortcut_ride_construction_turn_left,
-        shortcut_ride_construction_turn_right,
-        shortcut_ride_construction_use_track_default,
-        shortcut_ride_construction_slope_down,
-        shortcut_ride_construction_slope_up,
-        shortcut_ride_construction_chain_lift_toggle,
-        shortcut_ride_construction_bank_left,
-        shortcut_ride_construction_bank_right,
-        shortcut_ride_construction_previous_track,
-        shortcut_ride_construction_next_track,
-        shortcut_ride_construction_build_current,
-        shortcut_ride_construction_demolish_current,
-        shortcut_load_game,
-        shortcut_clear_scenery,
-        shortcut_gridlines_toggle,
-        shortcut_view_clipping,
-        shortcut_highlight_path_issues_toggle,
-        shortcut_open_tile_inspector,
-        shortcut_advance_to_next_tick,
-        shortcut_open_scenery_picker,
+    const std::unordered_map<Shortcut, std::function<void()>> shortcut_table = {
+        { Shortcut::CLOSE_TOP_MOST_WINDOW, shortcut_close_top_most_window }
     };
-} // anonymous namespace
 
-#pragma endregion
+    //const shortcut_action shortcut_table[SHORTCUT_COUNT] = {
+    //    shortcut_close_top_most_window,
+    //    shortcut_close_all_floating_windows,
+    //    shortcut_cancel_construction_mode,
+    //    shortcut_pause_game,
+    //    shortcut_zoom_view_out,
+    //    shortcut_zoom_view_in,
+    //    shortcut_rotate_view_clockwise,
+    //    shortcut_rotate_view_anticlockwise,
+    //    shortcut_rotate_construction_object,
+    //    shortcut_underground_view_toggle,
+    //    shortcut_remove_base_land_toggle,
+    //    shortcut_remove_vertical_land_toggle,
+    //    shortcut_see_through_rides_toggle,
+    //    shortcut_see_through_scenery_toggle,
+    //    shortcut_invisible_supports_toggle,
+    //    shortcut_invisible_people_toggle,
+    //    shortcut_height_marks_on_land_toggle,
+    //    shortcut_height_marks_on_ride_tracks_toggle,
+    //    shortcut_height_marks_on_paths_toggle,
+    //    shortcut_adjust_land,
+    //    shortcut_adjust_water,
+    //    shortcut_build_scenery,
+    //    shortcut_build_paths,
+    //    shortcut_build_new_ride,
+    //    shortcut_show_financial_information,
+    //    shortcut_show_research_information,
+    //    shortcut_show_rides_list,
+    //    shortcut_show_park_information,
+    //    shortcut_show_guest_list,
+    //    shortcut_show_staff_list,
+    //    shortcut_show_recent_messages,
+    //    shortcut_show_map,
+    //    shortcut_screenshot,
+
+    //    // new
+    //    shortcut_reduce_game_speed,
+    //    shortcut_increase_game_speed,
+    //    shortcut_open_cheat_window,
+    //    shortcut_remove_top_bottom_toolbar_toggle,
+    //    nullptr,
+    //    nullptr,
+    //    nullptr,
+    //    nullptr,
+    //    shortcut_open_chat_window,
+    //    shortcut_quick_save_game,
+    //    shortcut_show_options,
+    //    shortcut_mute_sound,
+    //    shortcut_windowed_mode_toggle,
+    //    shortcut_show_multiplayer,
+    //    nullptr,
+    //    shortcut_debug_paint_toggle,
+    //    shortcut_see_through_paths_toggle,
+    //    shortcut_ride_construction_turn_left,
+    //    shortcut_ride_construction_turn_right,
+    //    shortcut_ride_construction_use_track_default,
+    //    shortcut_ride_construction_slope_down,
+    //    shortcut_ride_construction_slope_up,
+    //    shortcut_ride_construction_chain_lift_toggle,
+    //    shortcut_ride_construction_bank_left,
+    //    shortcut_ride_construction_bank_right,
+    //    shortcut_ride_construction_previous_track,
+    //    shortcut_ride_construction_next_track,
+    //    shortcut_ride_construction_build_current,
+    //    shortcut_ride_construction_demolish_current,
+    //    shortcut_load_game,
+    //    shortcut_clear_scenery,
+    //    shortcut_gridlines_toggle,
+    //    shortcut_view_clipping,
+    //    shortcut_highlight_path_issues_toggle,
+    //    shortcut_open_tile_inspector,
+    //    shortcut_advance_to_next_tick,
+    //    shortcut_open_scenery_picker,
+    //};
+} // anonymous namespace
