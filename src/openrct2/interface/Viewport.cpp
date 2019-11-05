@@ -219,21 +219,20 @@ void viewport_adjust_for_map_height(int16_t* x, int16_t* y, int16_t* z)
     int16_t height = 0;
 
     uint32_t rotation = get_current_rotation();
-    LocationXY16 pos;
+    CoordsXY pos{};
     for (int32_t i = 0; i < 6; i++)
     {
         pos = viewport_coord_to_map_coord(start_x, start_y, height);
-        height = tile_element_height({ (0xFFFF) & pos.x, (0xFFFF) & pos.y });
+        height = tile_element_height(pos);
 
         // HACK: This is to prevent the x and y values being set to values outside
         // of the map. This can happen when the height is larger than the map size.
         int16_t max = gMapSizeMinus2;
         if (pos.x > max && pos.y > max)
         {
-            int32_t x_corr[] = { -1, 1, 1, -1 };
-            int32_t y_corr[] = { -1, -1, 1, 1 };
-            pos.x += x_corr[rotation] * height;
-            pos.y += y_corr[rotation] * height;
+            const CoordsXY corr[] = { { -1, -1 }, { 1, -1 }, { 1, 1 }, { -1, 1 } };
+            pos.x += corr[rotation].x * height;
+            pos.y += corr[rotation].y * height;
         }
     }
 
@@ -557,9 +556,8 @@ void viewport_update_position(rct_window* window)
 
     int16_t x = window->saved_view_x + viewport->view_width / 2;
     int16_t y = window->saved_view_y + viewport->view_height / 2;
-    LocationXY16 mapCoord;
 
-    mapCoord = viewport_coord_to_map_coord(x, y, 0);
+    auto mapCoord = viewport_coord_to_map_coord(x, y, 0);
 
     // Clamp to the map minimum value
     int32_t at_map_edge = 0;
@@ -997,23 +995,27 @@ static void viewport_paint_weather_gloom(rct_drawpixelinfo* dpi)
  *
  *  rct2: 0x0068958D
  */
-void screen_pos_to_map_pos(int16_t* x, int16_t* y, int32_t* direction)
+CoordsXY screen_pos_to_map_pos(int16_t x, int16_t y, int32_t* direction)
 {
-    screen_get_map_xy(*x, *y, x, y, nullptr);
-    if (*x == LOCATION_NULL)
-        return;
+    int16_t mapX = 0;
+    int16_t mapY = 0;
+    screen_get_map_xy(x, y, &mapX, &mapY, nullptr);
+    if (mapX == LOCATION_NULL)
+        return {};
+
+    CoordsXY mapCoords = { mapX, mapY };
 
     int32_t my_direction;
-    int32_t dist_from_centre_x = abs(*x % 32);
-    int32_t dist_from_centre_y = abs(*y % 32);
+    int32_t dist_from_centre_x = abs(mapCoords.x % 32);
+    int32_t dist_from_centre_y = abs(mapCoords.y % 32);
     if (dist_from_centre_x > 8 && dist_from_centre_x < 24 && dist_from_centre_y > 8 && dist_from_centre_y < 24)
     {
         my_direction = 4;
     }
     else
     {
-        int16_t mod_x = *x & 0x1F;
-        int16_t mod_y = *y & 0x1F;
+        int16_t mod_x = mapCoords.x & 0x1F;
+        int16_t mod_y = mapCoords.y & 0x1F;
         if (mod_x <= 16)
         {
             if (mod_y < 16)
@@ -1038,10 +1040,11 @@ void screen_pos_to_map_pos(int16_t* x, int16_t* y, int32_t* direction)
         }
     }
 
-    *x = *x & ~0x1F;
-    *y = *y & ~0x1F;
+    mapCoords.x = mapCoords.x & ~0x1F;
+    mapCoords.y = mapCoords.y & ~0x1F;
     if (direction != nullptr)
         *direction = my_direction;
+    return mapCoords;
 }
 
 LocationXY16 screen_coord_to_viewport_coord(rct_viewport* viewport, uint16_t x, uint16_t y)
@@ -1052,9 +1055,9 @@ LocationXY16 screen_coord_to_viewport_coord(rct_viewport* viewport, uint16_t x, 
     return ret;
 }
 
-LocationXY16 viewport_coord_to_map_coord(int32_t x, int32_t y, int32_t z)
+CoordsXY viewport_coord_to_map_coord(int32_t x, int32_t y, int32_t z)
 {
-    LocationXY16 ret = {};
+    CoordsXY ret{};
     switch (get_current_rotation())
     {
         case 0:
@@ -1627,24 +1630,40 @@ void get_map_coordinates_from_pos_window(
     rct_window* window, int32_t screenX, int32_t screenY, int32_t flags, int16_t* x, int16_t* y, int32_t* interactionType,
     TileElement** tileElement, rct_viewport** viewport)
 {
+    ScreenCoordsXY screenCoords(screenX, screenY);
+    CoordsXY mapCoords;
+
+    get_map_coordinates_from_pos_window(window, screenCoords, flags, mapCoords, interactionType, tileElement, viewport);
+
+    if (x != nullptr)
+        *x = mapCoords.x;
+    if (y != nullptr)
+        *y = mapCoords.y;
+}
+
+void get_map_coordinates_from_pos_window(
+    rct_window* window, ScreenCoordsXY screenCoords, int32_t flags, CoordsXY& mapCoords, int32_t* interactionType,
+    TileElement** tileElement, rct_viewport** viewport)
+{
     _interactionFlags = flags & 0xFFFF;
     _interactionSpriteType = 0;
     if (window != nullptr && window->viewport != nullptr)
     {
         rct_viewport* myviewport = window->viewport;
-        screenX -= (int32_t)myviewport->x;
-        screenY -= (int32_t)myviewport->y;
-        if (screenX >= 0 && screenX < (int32_t)myviewport->width && screenY >= 0 && screenY < (int32_t)myviewport->height)
+        screenCoords.x -= (int32_t)myviewport->x;
+        screenCoords.y -= (int32_t)myviewport->y;
+        if (screenCoords.x >= 0 && screenCoords.x < (int32_t)myviewport->width && screenCoords.y >= 0
+            && screenCoords.y < (int32_t)myviewport->height)
         {
-            screenX <<= myviewport->zoom;
-            screenY <<= myviewport->zoom;
-            screenX += (int32_t)myviewport->view_x;
-            screenY += (int32_t)myviewport->view_y;
+            screenCoords.x <<= myviewport->zoom;
+            screenCoords.y <<= myviewport->zoom;
+            screenCoords.x += (int32_t)myviewport->view_x;
+            screenCoords.y += (int32_t)myviewport->view_y;
             _viewportDpi1.zoom_level = myviewport->zoom;
-            screenX &= (0xFFFF << myviewport->zoom) & 0xFFFF;
-            screenY &= (0xFFFF << myviewport->zoom) & 0xFFFF;
-            _viewportDpi1.x = screenX;
-            _viewportDpi1.y = screenY;
+            screenCoords.x &= (0xFFFF << myviewport->zoom) & 0xFFFF;
+            screenCoords.y &= (0xFFFF << myviewport->zoom) & 0xFFFF;
+            _viewportDpi1.x = screenCoords.x;
+            _viewportDpi1.y = screenCoords.y;
             rct_drawpixelinfo* dpi = &_viewportDpi2;
             dpi->y = _viewportDpi1.y;
             dpi->height = 1;
@@ -1663,10 +1682,10 @@ void get_map_coordinates_from_pos_window(
     }
     if (interactionType != nullptr)
         *interactionType = _interactionSpriteType;
-    if (x != nullptr)
-        *x = _interactionMapX;
-    if (y != nullptr)
-        *y = _interactionMapY;
+
+    mapCoords.x = _interactionMapX;
+    mapCoords.y = _interactionMapY;
+
     if (tileElement != nullptr)
         *tileElement = _interaction_element;
 }
@@ -1766,11 +1785,11 @@ void screen_get_map_xy(int32_t screenX, int32_t screenY, int16_t* x, int16_t* y,
     }
 
     LocationXY16 start_vp_pos = screen_coord_to_viewport_coord(myViewport, screenX, screenY);
-    LocationXY16 map_pos = { (int16_t)(my_x + 16), (int16_t)(my_y + 16) };
+    CoordsXY map_pos = { my_x + 16, my_y + 16 };
 
     for (int32_t i = 0; i < 5; i++)
     {
-        int32_t z = tile_element_height({ map_pos.x, map_pos.y });
+        int32_t z = tile_element_height(map_pos);
         map_pos = viewport_coord_to_map_coord(start_vp_pos.x, start_vp_pos.y, z);
         map_pos.x = std::clamp<int16_t>(map_pos.x, my_x, my_x + 31);
         map_pos.y = std::clamp<int16_t>(map_pos.y, my_y, my_y + 31);
@@ -1799,7 +1818,7 @@ void screen_get_map_xy_with_z(int16_t screenX, int16_t screenY, int16_t z, int16
     screenX = viewport->view_x + ((screenX - viewport->x) << viewport->zoom);
     screenY = viewport->view_y + ((screenY - viewport->y) << viewport->zoom);
 
-    LocationXY16 mapPosition = viewport_coord_to_map_coord(screenX, screenY + z, 0);
+    auto mapPosition = viewport_coord_to_map_coord(screenX, screenY + z, 0);
     if (mapPosition.x < 0 || mapPosition.x >= (256 * 32) || mapPosition.y < 0 || mapPosition.y > (256 * 32))
     {
         *mapX = LOCATION_NULL;

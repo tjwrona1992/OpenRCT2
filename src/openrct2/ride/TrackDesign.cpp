@@ -790,7 +790,7 @@ static void track_design_add_selection_tile(int16_t x, int16_t y)
             return;
         }
     }
-    gMapSelectionTiles.push_back(CoordsXY{ x, y });
+    gMapSelectionTiles.push_back(CoordsXY(x, y));
 }
 
 static void track_design_update_max_min_coordinates(int16_t x, int16_t y, int16_t z)
@@ -874,8 +874,8 @@ static bool TrackDesignPlaceSceneryElementRemoveGhost(
             if (!(!scenery_small_entry_has_flag(small_scenery, SMALL_SCENERY_FLAG_FULL_TILE)
                   && scenery_small_entry_has_flag(small_scenery, SMALL_SCENERY_FLAG_DIAGONAL))
                 && scenery_small_entry_has_flag(
-                       small_scenery,
-                       SMALL_SCENERY_FLAG_DIAGONAL | SMALL_SCENERY_FLAG_HALF_SPACE | SMALL_SCENERY_FLAG_THREE_QUARTERS))
+                    small_scenery,
+                    SMALL_SCENERY_FLAG_DIAGONAL | SMALL_SCENERY_FLAG_HALF_SPACE | SMALL_SCENERY_FLAG_THREE_QUARTERS))
             {
                 quadrant = 0;
             }
