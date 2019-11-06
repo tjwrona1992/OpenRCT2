@@ -24,6 +24,45 @@
 using namespace OpenRCT2;
 using namespace OpenRCT2::Input;
 
+const std::unordered_map<KeyCombination, Action> gDefaultShortcuts;
+
+KeyboardShortcuts::KeyboardShortcuts(const std::string& configFile)
+    : _configFile(configFile)
+    , _shortcuts(gDefaultShortcuts)
+{
+    // If a config file already exists, load it
+    Load();
+}
+
+KeyboardShortcuts::~KeyboardShortcuts()
+{
+    _instance = nullptr;
+}
+
+void KeyboardShortcuts::Load()
+{
+    try
+    {
+        //TODO: Load shortcuts from file
+    }
+    catch (const std::exception& ex)
+    {
+        Console::WriteLine("Error loading keyboard shortcuts: %s", ex.what());
+    }
+}
+
+void KeyboardShortcuts::Save()
+{
+    try
+    {
+        //TODO: Save shortcuts to file
+    }
+    catch (const std::exception& ex)
+    {
+        Console::WriteLine("Error saving keyboard shortcuts: %s", ex.what());
+    }
+}
+
 // Remove when the C calls are removed
 static KeyboardShortcuts* _instance;
 
@@ -72,82 +111,7 @@ static const std::map<const SDL_Scancode, const rct_string_id> specialCharNames 
     { SDL_SCANCODE_SCROLLLOCK, STR_SHORTCUT_SCROLL },
 };
 
-KeyboardShortcuts::KeyboardShortcuts(const std::string& configFile)
-    : _configFile(configFile)
-{
-    try
-    {
-        Load();
-    }
-    catch (const std::exception& ex)
-    {
-        Console::WriteLine("Error loading keyboard shortcuts: %s", ex.what());
-    }
-}
 
-KeyboardShortcuts::~KeyboardShortcuts()
-{
-    _instance = nullptr;
-}
-
-void KeyboardShortcuts::Reset()
-{
-    for (size_t i = 0; i < SHORTCUT_COUNT; i++)
-    {
-        _keys[i] = DefaultKeys[i];
-    }
-}
-
-bool KeyboardShortcuts::Load()
-{
-    bool result = false;
-    Reset();
-    try
-    {
-        std::string path = _env->GetFilePath(PATHID::CONFIG_KEYBOARD);
-        if (File::Exists(path))
-        {
-            auto fs = FileStream(path, FILE_MODE_OPEN);
-            uint16_t version = fs.ReadValue<uint16_t>();
-            if (version == KeyboardShortcuts::CURRENT_FILE_VERSION)
-            {
-                int32_t numShortcutsInFile = (fs.GetLength() - sizeof(uint16_t)) / sizeof(uint16_t);
-                int32_t numShortcutsToRead = std::min<int32_t>(SHORTCUT_COUNT, numShortcutsInFile);
-                for (int32_t i = 0; i < numShortcutsToRead; i++)
-                {
-                    _keys[i] = fs.ReadValue<uint16_t>();
-                }
-                result = true;
-            }
-        }
-    }
-    catch (const std::exception& ex)
-    {
-        Console::WriteLine("Error reading shortcut keys: %s", ex.what());
-    }
-    return result;
-}
-
-bool KeyboardShortcuts::Save()
-{
-    bool result = false;
-    try
-    {
-        std::string path = _env->GetFilePath(PATHID::CONFIG_KEYBOARD);
-        auto fs = FileStream(path, FILE_MODE_WRITE);
-        fs.WriteValue<uint16_t>(KeyboardShortcuts::CURRENT_FILE_VERSION);
-        for (int32_t i = 0; i < SHORTCUT_COUNT; i++)
-        {
-            fs.WriteValue<uint16_t>(_keys[i]);
-        }
-        result = true;
-    }
-    catch (const std::exception& ex)
-    {
-        Console::WriteLine("Error writing shortcut keys: %s", ex.what());
-    }
-    return result;
-}
 
 void KeyboardShortcuts::Set(int32_t key)
 {

@@ -40,10 +40,12 @@ namespace OpenRCT2::Input
         ~KeyboardShortcuts() = default;
 
         void Load();
+        void Reset();
+        void Save();
 
     private:
-        std::string _configFile;
-        std::unordered_map<KeyCombination, Action> _defaultShortcuts;
+        const std::string _configFile;
+        const std::unordered_map<KeyCombination, Action> _defaultShortcuts;
         std::unordered_map<KeyCombination, Action> _shortcuts;
     };
 } // namespace OpenRCT2::Input
