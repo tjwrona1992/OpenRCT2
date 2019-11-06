@@ -72,10 +72,17 @@ static const std::map<const SDL_Scancode, const rct_string_id> specialCharNames 
     { SDL_SCANCODE_SCROLLLOCK, STR_SHORTCUT_SCROLL },
 };
 
-KeyboardShortcuts::KeyboardShortcuts(const std::shared_ptr<IPlatformEnvironment>& env)
-    : _env(env)
+KeyboardShortcuts::KeyboardShortcuts(const std::string& configFile)
+    : _configFile(configFile)
 {
-    _instance = this;
+    try
+    {
+        Load();
+    }
+    catch (const std::exception& ex)
+    {
+        Console::WriteLine("Error loading keyboard shortcuts: %s", ex.what());
+    }
 }
 
 KeyboardShortcuts::~KeyboardShortcuts()

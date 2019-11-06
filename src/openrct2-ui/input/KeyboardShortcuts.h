@@ -32,39 +32,19 @@ namespace OpenRCT2::Input
 {
     using KeyCombination = uint16_t;
     using Action = std::function<void()>;
-    using KeyboardShortcutMap = std::unordered_map<KeyCombination, Action>;
 
     class KeyboardShortcuts
     {
     public:
-        KeyboardShortcuts(const std::string& configFile)
-            : _shortcuts(Load(configFile))
-        {
-        }
+        KeyboardShortcuts(const std::string& configFile);
+        ~KeyboardShortcuts() = default;
+
+        void Load();
 
     private:
-        KeyboardShortcutMap Load(const std::string& configFile)
-        {
-            try
-            {
-                const std::ifstream fileStream(configFile, std::ifstream::in);
-                uint16_t version = fileStream.ReadValue<uint16_t>();
-                if (version == KeyboardShortcuts::CURRENT_FILE_VERSION)
-                {
-                    int32_t numShortcutsInFile = (fileStream.GetLength() - sizeof(uint16_t)) / sizeof(uint16_t);
-                    for (int32_t i = 0; i < numShortcutsInFile; i++)
-                    {
-                        _keys[i] = fileStream.ReadValue<uint16_t>();
-                    }
-                }
-            }
-            catch (const std::exception& ex)
-            {
-                Console::WriteLine("Error reading shortcut keys: %s", ex.what());
-            }
-        }
-
-        KeyboardShortcutMap _shortcuts;
+        std::string _configFile;
+        std::unordered_map<KeyCombination, Action> _defaultShortcuts;
+        std::unordered_map<KeyCombination, Action> _shortcuts;
     };
 } // namespace OpenRCT2::Input
 
