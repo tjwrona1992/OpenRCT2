@@ -10,8 +10,8 @@
 #pragma once
 
 #include <SDL_scancode.h>
-#include <functional>
 #include <fstream>
+#include <functional>
 #include <memory>
 #include <openrct2/common.h>
 #include <openrct2/world/Location.hpp>
@@ -27,28 +27,6 @@
 #else
 #    define PLATFORM_MODIFIER CTRL
 #endif
-
-namespace OpenRCT2::Input
-{
-    using KeyCombination = uint16_t;
-    using Action = std::function<void()>;
-
-    class KeyboardShortcuts
-    {
-    public:
-        KeyboardShortcuts(const std::string& configFile);
-        ~KeyboardShortcuts() = default;
-
-        void Load();
-        void Reset();
-        void Save();
-
-    private:
-        const std::string _configFile;
-        const std::unordered_map<KeyCombination, Action> _defaultShortcuts;
-        std::unordered_map<KeyCombination, Action> _shortcuts;
-    };
-} // namespace OpenRCT2::Input
 
 enum class Shortcut
 {
@@ -164,7 +142,7 @@ enum class Shortcut
 
 /** The current shortcut being changed. */
 extern uint8_t gKeyboardShortcutChangeId;
-//extern const rct_string_id ShortcutStringIds[SHORTCUT_COUNT];
+// extern const rct_string_id ShortcutStringIds[SHORTCUT_COUNT];
 
 void keyboard_shortcuts_reset();
 bool keyboard_shortcuts_load();
