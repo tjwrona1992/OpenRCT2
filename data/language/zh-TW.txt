@@ -2110,8 +2110,8 @@ STR_2779    :額外檢視視窗#{COMMA16}
 STR_2780    :新的額外檢視視窗
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :更改鍵盤快捷鍵
 STR_2785    :{WINDOW_COLOUR_2}請按下屬於下列快捷鍵的新鍵位:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}按一下快捷鍵的描述來選擇新的鍵位
@@ -2977,7 +2977,7 @@ STR_5463    :目標: 盡情玩吧!
 STR_5464    :一般
 STR_5465    :氣候
 STR_5466    :員工
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :最近消息
 STR_5469    :向上捲動地圖
 STR_5470    :向左捲動地圖
@@ -3141,8 +3141,8 @@ STR_5629    :困難程度
 STR_5630    :允許漸進解鎖
 STR_5631    :額外下載的官方樂園
 STR_5632    :建設你的..
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}已花費金錢: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}已運行命名: {BLACK}{COMMA16}個
 STR_5637    :無法進行此動作...

@@ -2115,8 +2115,8 @@ STR_2779    :查看窗口 #{COMMA16}
 STR_2780    :额外的查看窗口
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :变更快捷键
 STR_2785    :{WINDOW_COLOUR_2}Press new shortcut key for:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}点击快捷键描述来设置新的快捷键
@@ -2968,7 +2968,7 @@ STR_5463    :目标：尽情玩吧！
 STR_5464    :一般
 STR_5465    :天气
 STR_5466    :雇员
-STR_5467    :ALT +
+STR_5467    :ALT
 STR_5468    :最近消息
 STR_5469    :向上滚动地图
 STR_5470    :向左滚动地图
@@ -3132,8 +3132,8 @@ STR_5629    :困难度
 STR_5630    :允许逐步解锁
 STR_5631    :原版DLC游乐园
 STR_5632    :修建你自己的...
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}花费: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}命令运行: {BLACK}{COMMA16}
 STR_5637    :不能做此行为...

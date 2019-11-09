@@ -2108,8 +2108,8 @@ STR_2779    :Ansichtsfenster {COMMA16}
 STR_2780    :Zusatz-Ansichtsfenster
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :UMSCHALT + 
-STR_2783    :STRG + 
+STR_2782    :UMSCHALT
+STR_2783    :STRG
 STR_2784    :Tastaturkürzel ändern
 STR_2785    :{WINDOW_COLOUR_2}Drücken Sie die neue Taste für:{NEWLINE}„{STRINGID}“
 STR_2786    :{SMALLFONT}{BLACK}Klicken Sie auf die Kürzelbeschreibung, um eine neue Taste auszuwählen
@@ -2958,7 +2958,7 @@ STR_5463    :Ziel: Viel Spaß!
 STR_5464    :Allgemein
 STR_5465    :Wetter
 STR_5466    :Personal
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :Letzte Nachrichten
 STR_5469    :Karte nach oben verschieben
 STR_5470    :Karte nach links verschieben
@@ -3122,8 +3122,8 @@ STR_5629    :Schwierigkeitsgrad
 STR_5630    :Fortschreitendes Freispielen aktivieren
 STR_5631    :Originale DLC Parks
 STR_5632    :Bauen Sie Ihren eigenen...
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}Geld ausgegeben: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Befehle ausgeführt: {BLACK}{COMMA16}
 STR_5637    :Nicht möglich...

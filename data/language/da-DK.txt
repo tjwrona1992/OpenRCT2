@@ -2111,8 +2111,8 @@ STR_2779    :Visning #{COMMA16}
 STR_2780    :Ekstra visning
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :Skift tastatur genvej
 STR_2785    :{WINDOW_COLOUR_2}tryk på den nye genvej for:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Klik på genvejsbeskrivelsen og vælg en ny tast
@@ -2975,7 +2975,7 @@ STR_5463    :Mål: Ha' det sjovt!
 STR_5464    :Generelt
 STR_5465    :Vejr
 STR_5466    :Ansatte
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :Seneste meddelelse
 STR_5469    :Rul kort op
 STR_5470    :Rul kort til venstre
@@ -3139,8 +3139,8 @@ STR_5629    :Sværhedsgrad
 STR_5630    :Aktiver progressiv frigørelse
 STR_5631    :Originale DLC parker
 STR_5632    :Byg din egen...
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}Penge brugt: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Kommandoer kørt: {BLACK}{COMMA16}
 STR_5637    :Kan ikke gøre dette...

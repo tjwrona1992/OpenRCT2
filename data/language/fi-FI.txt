@@ -2114,8 +2114,8 @@ STR_2779    :Ikkuna #{COMMA16}
 STR_2780    :Ylimääräinen ikkuna
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :Muuta näppäimistön pikanäppäintä
 STR_2785    :{WINDOW_COLOUR_2}Paina uusi näppäinyhdistelmä toiminnolle:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Paina pikanäppäimen kuvausta valitaksesi uuden näppäinyhdistelmän
@@ -2979,7 +2979,7 @@ STR_5463    :Tavoite: Pidä hauskaa!
 STR_5464    :Yleiset
 STR_5465    :Ilmasto
 STR_5466    :Henkilökunta
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :Viimeiset viestit
 STR_5469    :Vieritä karttaa ylös
 STR_5470    :Vieritä karttaa vasemmalle

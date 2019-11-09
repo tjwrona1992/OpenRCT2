@@ -2110,8 +2110,8 @@ STR_2779    :외부화면 #{COMMA16}
 STR_2780    :추가 외부화면
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT +
-STR_2783    :CTRL +
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :키보드 단축키 변경
 STR_2785    :{WINDOW_COLOUR_2}새 단축키를 누르세요:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}새 단축키를 설정하려면 단축키 설명을 클릭하세요
@@ -2961,7 +2961,7 @@ STR_5463    :목표: 즐기세요!
 STR_5464    :일반
 STR_5465    :날씨
 STR_5466    :직원
-STR_5467    :ALT +
+STR_5467    :ALT
 STR_5468    :최근 메시지
 STR_5469    :맵을 위로 스크롤
 STR_5470    :맵을 왼쪽으로 스크롤
@@ -3125,8 +3125,8 @@ STR_5629    :난이도별
 STR_5630    :시나리오 클리어 시 새 시나리오 열기 켜기
 STR_5631    :오리지널 다운로드 콘텐츠 공원
 STR_5632    :직접 만들기...
-STR_5633    :CMD +
-STR_5634    :OPTION +
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}쓴 돈: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}실행한 명령: {BLACK}{COMMA16}
 STR_5637    :할 수 없습니다...

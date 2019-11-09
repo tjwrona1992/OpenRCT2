@@ -2106,8 +2106,8 @@ STR_2779    :Görüntü alanı #{COMMA16}
 STR_2780    :Ekstra görüntü alanı
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :Tuş ayarını değiştiriniz
 STR_2785    :{WINDOW_COLOUR_2}Bu kısaltma için yeni tuş giriniz:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Tuşu değiştirmek için buraya basınız
@@ -2968,7 +2968,7 @@ STR_5463    :Hedefi sil
 STR_5464    :Genel
 STR_5465    :Iklim
 STR_5466    :Işci
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :Son bildirimler
 STR_5469    :Ekranı yukarı kaydır
 STR_5470    :Ekranı sola kaydır
@@ -3132,8 +3132,8 @@ STR_5629    :Zorluk seviyesi
 STR_5630    :Aşamalı ilerleme
 STR_5631    :Orijinal DLC Parkları
 STR_5632    :Kendiniz inşa ediniz...
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}Harcadığı para: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Yaptığı değişiklikler: {BLACK}{COMMA16}
 STR_5637    :Bu yapılamıyor...

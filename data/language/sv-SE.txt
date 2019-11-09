@@ -2107,8 +2107,8 @@ STR_2778    :»{MOVE_X}{10}{STRING}
 STR_2779    :Bildskärm #{COMMA16}
 STR_2780    :Extra bildskärm
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :Ändra snabbtangenter
 STR_2785    :{WINDOW_COLOUR_2}Välj ny snabbtangent för:{NEWLINE}”{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Klicka på en beskrivning för att välja en ny snabbtangent
@@ -2958,7 +2958,7 @@ STR_5463    :Mål: Ha kul!
 STR_5464    :Allmänt
 STR_5465    :Väder
 STR_5466    :Personal
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :Senaste meddelanden
 STR_5469    :Skrolla kartan uppåt
 STR_5470    :Skrolla kartan åt vänster
@@ -3121,8 +3121,8 @@ STR_5629    :Svårighetsgrad
 STR_5630    :Tillåt progressiv-upplåsning
 STR_5631    :Original DLC parker
 STR_5632    :Bygg din egna …
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}Pengar spenderat: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Utförda kommandon: {BLACK}{COMMA16}
 STR_5637    :Kan inte göra detta …

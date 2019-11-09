@@ -2110,8 +2110,8 @@ STR_2778    :»{MOVE_X}{SMALLFONT}{STRING}
 STR_2779    :Vue #{COMMA16}
 STR_2780    :Vue supplémentaire
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :Modifier raccourci clavier
 STR_2785    :{WINDOW_COLOUR_2}Nouveau raccourci clavier pour :{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Cliquer sur la description du raccourci pour choisir une nouvelle touche
@@ -2963,7 +2963,7 @@ STR_5463    :But : Amusez-vous !
 STR_5464    :Général
 STR_5465    :Météo
 STR_5466    :Personnel
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :Messages récents
 STR_5469    :Défiler la carte vers le haut
 STR_5470    :Défiler la carte vers la gauche
@@ -3127,8 +3127,8 @@ STR_5629    :Niveau de difficulté
 STR_5630    :Activer le déblocage progressif des scénarios
 STR_5631    :Parcs additionnels originaux
 STR_5632    :Construisez votre propre parc...
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}Argent dépensé : {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Commandes exécutées : {BLACK}{COMMA16}
 STR_5637    :Impossible...

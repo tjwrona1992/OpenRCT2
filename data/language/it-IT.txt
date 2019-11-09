@@ -2108,8 +2108,8 @@ STR_2778    :»{MOVE_X}{SMALLFONT}{STRING}
 STR_2779    :Finestra #{COMMA16}
 STR_2780    :Finestra extra
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT + 
-STR_2783    :CTRL + 
+STR_2782    :SHIFT
+STR_2783    :CTRL
 STR_2784    :Modifica la scorciatoia
 STR_2785    :{WINDOW_COLOUR_2}Premi il nuovo tasto-scorciatoia per : {NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Clicca sulla descrizione della scorciatoia per selezionare un nuovo tasto
@@ -2963,7 +2963,7 @@ STR_5463    :Obiett. "Divertiti"
 STR_5464    :Generale
 STR_5465    :Clima
 STR_5466    :Personale
-STR_5467    :ALT + 
+STR_5467    :ALT
 STR_5468    :Messaggi recenti
 STR_5469    :Scorri la mappa in alto
 STR_5470    :Scorri la mappa a sinistra
@@ -3127,8 +3127,8 @@ STR_5629    :Livello di difficoltà
 STR_5630    :Attiva sblocco progressivo
 STR_5631    :Parchi scaricabili originali
 STR_5632    :Costruisci il tuo...
-STR_5633    :CMD + 
-STR_5634    :OPTION + 
+STR_5633    :CMD
+STR_5634    :OPTION
 STR_5635    :{WINDOW_COLOUR_2}Soldi spesi: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Comandi eseguiti: {BLACK}{COMMA16}
 STR_5637    :Non è possibile effettuarlo...
