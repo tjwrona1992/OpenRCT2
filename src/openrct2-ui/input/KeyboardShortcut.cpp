@@ -1,28 +1,38 @@
 #include "KeyboardShortcut.hpp"
 
+#include <openrct2/localisation/Localisation.h>
+#include <sstream>
+
 namespace OpenRCT2::Input
 {
-    KeyboardShortcut::KeyboardShortcut(
-        const uint16_t keyCombination, const rct_string_id id, const std::function<void()>& action)
+    KeyboardShortcut::KeyboardShortcut(const uint16_t keyCombination, const std::function<void()>& action)
         : _keyCombination(keyCombination)
-        , _id(id)
         , _action(action)
     {
     }
 
-    uint16_t KeyboardShortcut::GetKeyCombination()
+    std::string KeyboardShortcut::GetString()
     {
-        return _keyCombination;
-    }
+        std::stringstream ss;
+        if (_keyCombination & SHIFT)
+        {
+            ss << format_string(STR_SHIFT_PLUS, nullptr);
+        }
+        if (_keyCombination & CTRL)
+        {
+            ss << format_string(STR_CTRL_PLUS, nullptr);
+        }
+        if (_keyCombination & ALT)
+        {
+#if defined __MACOSX__
+            ss << format_string(STR_OPTION_PLUS, nullptr);
+#else
+            ss << format_string(STR_ALT_PLUS, nullptr);
+#endif
+        }
 
-    rct_string_id KeyboardShortcut::GetId()
-    {
-        return _id;
-    }
 
-    std::function<void()> KeyboardShortcut::GetAction()
-    {
-        return _action;
+        return "";
     }
 
     void KeyboardShortcut::Execute()
