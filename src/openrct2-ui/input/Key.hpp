@@ -4,11 +4,11 @@
 
 namespace OpenRCT2::Input
 {
-    class KeyCombination
+    class Key
     {
     public:
-        KeyCombination(const rct_string_id id, const uint16_t scanCode);
-        ~KeyCombination() = default;
+        Key(const rct_string_id id, const uint16_t scanCode);
+        ~Key() = default;
 
         rct_string_id GetId();
         uint16_t GetScanCode();
