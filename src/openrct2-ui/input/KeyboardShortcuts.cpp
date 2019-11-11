@@ -1,13 +1,14 @@
 #include "KeyboardShortcuts.hpp"
+
 #include <openrct2/core/Console.hpp>
 #include <stdexcept>
 #include <string>
-#include <unordered_map>
+#include <vector>
 
 namespace OpenRCT2::Input
 {
-    static std::unordered_map<uint16_t, KeyboardShortcut> gDefaultShortcuts = {
-
+    static const std::vector<KeyboardShortcut> gDefaultShortcuts = {
+        KeyboardShortcut({ SDL_SCANCODE_BACKSPACE }, [](){})
     };
 
     KeyboardShortcuts::KeyboardShortcuts(const std::string& configFile)
@@ -32,7 +33,7 @@ namespace OpenRCT2::Input
 
     void KeyboardShortcuts::Reset()
     {
-        _shortcuts = GetDefaultShortcuts();
+        _shortcuts = gDefaultShortcuts;
     }
 
     void KeyboardShortcuts::Save()

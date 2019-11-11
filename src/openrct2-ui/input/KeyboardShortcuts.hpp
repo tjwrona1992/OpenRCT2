@@ -2,7 +2,7 @@
 
 #include "KeyboardShortcut.hpp"
 #include <string>
-#include <unordered_map>
+#include <vector>
 
 namespace OpenRCT2::Input
 {
@@ -18,7 +18,6 @@ namespace OpenRCT2::Input
 
     private:
         const std::string _configFile;
-        const std::unordered_map<uint16_t, KeyboardShortcut> _defaultShortcuts;
-        std::unordered_map<uint16_t, KeyboardShortcut> _shortcuts;
+        std::vector<KeyboardShortcut> _shortcuts;
     };
 } // namespace OpenRCT2::Input

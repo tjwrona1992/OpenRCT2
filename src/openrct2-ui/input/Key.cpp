@@ -1,20 +1,20 @@
 #include "Key.hpp"
+#include <openrct2/localisation/Localisation.h>
+#include <SDL.h>
+#include <string>
 
 namespace OpenRCT2::Input
 {
-    Key::Key(const rct_string_id id, const uint16_t scanCode)
-        : _id(id)
-        , _scanCode(scanCode)
+    
+
+    Key::Key(uint16_t scancode)
+        , _scancode(scancode)
     {
     }
 
-    rct_string_id Key::GetId()
+    std::string Key::GetString() const
     {
-        return _id;
+        return format_string(_id, nullptr);
     }
 
-    uint16_t Key::GetScanCode()
-    {
-        return _scanCode;
-    }
 } // namespace OpenRCT2::Input
