@@ -2111,8 +2111,8 @@ STR_2779    :Pohled #{COMMA16}
 STR_2780    :Extra pohled
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :Změnit klávesovou zkratku
 STR_2785    :{WINDOW_COLOUR_2}Stiskněte novou klávesovou zkratku pro:{NEWLINE}„{STRINGID}“
 STR_2786    :{SMALLFONT}{BLACK}Klikněte na popis klávesové zkratky pro výběr nastavení zkratky
@@ -2974,7 +2974,7 @@ STR_5463    :Cíl: Příjemná zábava!
 STR_5464    :Obecné
 STR_5465    :Počasí
 STR_5466    :Personál
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5468    :Poslední zprávy
 STR_5469    :Posunou mapu nahoru
 STR_5470    :Posunou mapu vlevo
@@ -3138,8 +3138,8 @@ STR_5629    :Obtížnosti
 STR_5630    :Zapnout progresivní odemykání scénářů
 STR_5631    :Originální DLC parky
 STR_5632    :Postav si vlastní...
-STR_5633    :CMD
-STR_5634    :OPTION
+STR_5633    :CMD + 
+STR_5634    :OPTION + 
 STR_5635    :{WINDOW_COLOUR_2}Utracená hotovost: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Spuštěné příkazy: {BLACK}{COMMA16}
 STR_5637    :Toto nelze provést...

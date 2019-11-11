@@ -2109,8 +2109,8 @@ STR_2779    :ビューポート {COMMA16}号
 STR_2780    :ビューポートを開く
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :キーバインドを変更する
 STR_2785    :{WINDOW_COLOUR_2}新しいキーバインドを押して下さい。{NEWLINE}「{STRINGID}」
 STR_2786    :{SMALLFONT}{BLACK}新しいキーバインディングを設定するためにクリックして下さい。
@@ -2973,7 +2973,7 @@ STR_5463    :楽しむの目的
 STR_5464    :General
 STR_5465    :天気
 STR_5466    :スタッフ
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5468    :最近のメッセージ
 STR_5469    :地図を上にスクロールする
 STR_5470    :地図を左にスクロールする
@@ -3137,8 +3137,8 @@ STR_5629    :難易度
 STR_5630    :シナリオのロック解除モード
 STR_5631    :オリジナルDLCパーク
 STR_5632    :自分だけのビルド…
-STR_5633    :CMD
-STR_5634    :OPTION
+STR_5633    :CMD + 
+STR_5634    :OPTION + 
 STR_5635    :{WINDOW_COLOUR_2}Money spent: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Commands ran: {BLACK}{COMMA16}
 STR_5637    :それはできません…

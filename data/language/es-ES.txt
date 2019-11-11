@@ -2106,8 +2106,8 @@ STR_2778    :»{MOVE_X}{SMALLFONT}{STRING}
 STR_2779    :Cámara #{COMMA16}
 STR_2780    :Añadir 'cámara de vigilancia'
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :Cambiar atajo de teclado
 STR_2785    :{WINDOW_COLOUR_2}Presiona nueva tecla para:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Clic en la descripción del atajo para cambiar
@@ -2959,7 +2959,7 @@ STR_5463    :Meta: ¡Diviértete!
 STR_5464    :General
 STR_5465    :Clima
 STR_5466    :Empleados
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5468    :Mensajes recientes
 STR_5469    :Desplazar mapa hacia arriba
 STR_5470    :Desplazar mapa hacia la izq.
@@ -3125,8 +3125,8 @@ STR_5629    :Nivel de dificultad
 STR_5630    :Activa el desbloqueo progresivo
 STR_5631    :DLC de parques originales
 STR_5632    :Construye tu propio...
-STR_5633    :CMD
-STR_5634    :OPCIÓN
+STR_5633    :CMD + 
+STR_5634    :OPCIÓN + 
 STR_5635    :{WINDOW_COLOUR_2}Dinero gastado: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Acciones en total: {BLACK}{COMMA16}
 STR_5637    :No puedes hacer esto...

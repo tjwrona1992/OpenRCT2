@@ -2109,8 +2109,8 @@ STR_2779    :Vista #{COMMA16}
 STR_2780    :Vista extra
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :Canvia la drecera de teclat
 STR_2785    :{WINDOW_COLOUR_2}Premeu la nova drecera de teclat per:{NEWLINE}«{STRINGID}»
 STR_2786    :{SMALLFONT}{BLACK}Feu clic a la descripció d'una drecera per canviar-ne les tecles assignades.
@@ -2962,7 +2962,7 @@ STR_5463    :Objectiu: Divertiu-vos!
 STR_5464    :General
 STR_5465    :Estat meteorològic
 STR_5466    :Empleats
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5468    :Missatges recents
 STR_5469    :Desplaça el mapa amunt
 STR_5470    :Desplaça el mapa a l'esquerra
@@ -3126,8 +3126,8 @@ STR_5629    :Nivell de dificultat
 STR_5630    :Activa el desbloqueig progressiu
 STR_5631    :Parcs originals DLC
 STR_5632    :Construïu el vostre...
-STR_5633    :CMD
-STR_5634    :Opció
+STR_5633    :CMD + 
+STR_5634    :Opció + 
 STR_5635    :{WINDOW_COLOUR_2}Despeses: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Temps d'execució: {BLACK}{COMMA16}
 STR_5637    :Això no es pot fer...

@@ -2104,8 +2104,8 @@ STR_2778    :»{MOVE_X}{SMALLFONT}{STRING}
 STR_2779    :Kijkvenster {COMMA16}
 STR_2780    :Extra kijkvenster
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :Sneltoets wijzigen
 STR_2785    :{WINDOW_COLOUR_2}Voer een nieuwe sneltoets in voor:{NEWLINE}‘{STRINGID}’
 STR_2786    :{SMALLFONT}{BLACK}Klik op de beschrijving om een nieuwe sneltoets in te stellen
@@ -2969,7 +2969,7 @@ STR_5463    :Doel: Plezier hebben!
 STR_5464    :Algemeen
 STR_5465    :Weer
 STR_5466    :Werknemers
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5468    :Recente berichten
 STR_5469    :Kaart naar boven scrollen
 STR_5470    :Kaart naar links scrollen
@@ -3133,8 +3133,8 @@ STR_5629    :Moeilijkheidsgraad
 STR_5630    :Moeilijke scenario's ontgrendelden met gemakkelijke
 STR_5631    :Originele DLC
 STR_5632    :Bouw je eigen…
-STR_5633    :CMD
-STR_5634    :OPTION
+STR_5633    :CMD + 
+STR_5634    :OPTION + 
 STR_5635    :{WINDOW_COLOUR_2}Uitgegeven geld: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Uitgevoerde commando's: {BLACK}{COMMA16}
 STR_5637    :Kan dit niet uitvoeren…

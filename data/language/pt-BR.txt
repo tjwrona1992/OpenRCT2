@@ -2106,8 +2106,8 @@ STR_2779    :Janela de Exibição #{COMMA16}
 STR_2780    :Janela de Exibição Grande
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{195}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :Alterar atalhos do teclado
 STR_2785    :{WINDOW_COLOUR_2}Pressione uma nova tecla de atalho para:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Clique na descrição do atalho para selecionar uma nova tecla
@@ -2955,7 +2955,7 @@ STR_5463    :Objetivo: Divirta-se!
 STR_5464    :Geral
 STR_5465    :Clima
 STR_5466    :Funcionários
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5468    :Mensagens recentes
 STR_5469    :Desloca mapa para cima
 STR_5470    :Desloca mapa para esquerda
@@ -3118,8 +3118,8 @@ STR_5629    :Nível de dificuldade
 STR_5630    :Habilitar destravamento progressivo
 STR_5631    :Parques Originais Baixados (DLC)
 STR_5632    :Construa seu próprio...
-STR_5633    :CMD
-STR_5634    :OPTION
+STR_5633    :CMD + 
+STR_5634    :OPTION + 
 STR_5635    :{WINDOW_COLOUR_2}Dinheiro gasto: {BLACK}{CURRENCY2DP}
 STR_5636    :{WINDOW_COLOUR_2}Comandos executados: {BLACK}{COMMA16}
 STR_5637    :Não é possível fazer isto...

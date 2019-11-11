@@ -2097,8 +2097,8 @@ STR_2779    :Вид #{COMMA16}
 STR_2780    :Дополнительный вид
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :Изменить горячую клавишу
 STR_2785    :{WINDOW_COLOUR_2}Нажмите новую клавишу для:{NEWLINE}“{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Щёлкните на описании клавиши, чтобы выбрать новую
@@ -2713,7 +2713,7 @@ STR_5309    :OpenRCT2
 STR_5375    :▲
 STR_5376    :▼
 STR_5462    :{CURRENCY}
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5485    :{SMALLFONT}{STRING}
 STR_5486    :{BLACK}{COMMA16}
 STR_5918    :{POP16}{POP16}{POP16}{POP16}{POP16}{POP16}{POP16}{POP16}{POP16}{COMMA16}

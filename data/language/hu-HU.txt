@@ -2098,8 +2098,8 @@ STR_2779    :Látkép {COMMA16}
 STR_2780    :Extra látkép
 # End of new strings
 STR_2781    :{STRINGID}:{MOVE_X}{255}{STRINGID}
-STR_2782    :SHIFT
-STR_2783    :CTRL
+STR_2782    :SHIFT + 
+STR_2783    :CTRL + 
 STR_2784    :Gyorsbillentyűk beállítása
 STR_2785    :{WINDOW_COLOUR_2}Add meg az új gyorsbillentyűjét:{NEWLINE}„{STRINGID}”
 STR_2786    :{SMALLFONT}{BLACK}Kattints a parancs leírására új gyorsbillentyű megadásához
@@ -2912,7 +2912,7 @@ STR_5463    :Cél: Érezd jól magad!
 STR_5464    :Általános
 STR_5465    :Éghajlat
 STR_5466    :Személyzet
-STR_5467    :ALT
+STR_5467    :ALT + 
 STR_5468    :Legutóbbi üzenetek
 STR_5469    :Térkép felfelé görgetése
 STR_5470    :Térkép balra görgetése
